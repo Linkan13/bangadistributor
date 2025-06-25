@@ -6,24 +6,9 @@
         "spondonit/service": "dev-master"
     },
     "license": "MIT",
-    "authors": [
-        {
-            "name": "spondonit",
-            "email": "support@spondonit.com"
-        }
-    ],
-    "minimum-stability": "dev",
-    "autoload": {
-        "psr-4": {
-            "SpondonIt\\AmazCartService\\": "src/"
-        },
-        "files": ["Helpers/helper.php"]
-    },
-    "extra": {
-        "laravel": {
-            "providers": [
-                "SpondonIt\\AmazCartService\\SpondonItAmazCartServiceProvider"
-            ]
-        }
-    }
+    "authors": [{
+        "name": "spondonit",
+        "email": "support@spondonit.com"
+    }],
+    "minimum-stability": "dev"
 }

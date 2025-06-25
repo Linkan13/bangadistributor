@@ -13,7 +13,7 @@ class InstallController extends Controller{
     protected $repo, $request, $service_repo;
 
     public function __construct(
-        InstallRepository $repo, 
+        InstallRepository $repo,
         Request $request,
         ServiceRepository $service_repo
     )
@@ -24,7 +24,7 @@ class InstallController extends Controller{
     }
 
     public function index(){
-        
+
         $this->service_repo->checkInstallation();
         return view('amazcart::install.welcome');
     }
@@ -36,7 +36,7 @@ class InstallController extends Controller{
         if(!$this->service_repo->checkDatabaseConnection() || !$ac){
             abort(404);
         }
-       
+
 		return view('amazcart::install.user');
     }
 
@@ -46,7 +46,7 @@ class InstallController extends Controller{
        } catch(\Exception $e){
             return response()->json(['message' =>$e->getMessage()]);
        }
-         
+
         $this->repo->install($request->all());
 		return response()->json(['message' => __('amazcart::install.done_msg'), 'goto' => route('service.done')]);
     }

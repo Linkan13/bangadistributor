@@ -35,10 +35,10 @@ class SpondonItAmazCartServiceProvider extends ServiceProvider
         $this->loadViewsFrom(__DIR__.'/../resources/views', 'amazcart');
         $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
 
-        if(Storage::exists('.app_installed') && Storage::get('.app_installed')){
+        // if(Storage::exists('.app_installed') && Storage::get('.app_installed')){
             app()->singleton('ModuleList', function() {
                 return InfixModuleManager::all();
             });
-        }
+            // }
     }
 }

@@ -8,18 +8,5 @@
         "email": "hello@spondonit.com"
     }],
     "require": {},
-    "autoload": {
-        "psr-4": {
-            "SpondonIt\\Service\\": "src/"
-        },
-        "files": ["helpers/helper.php"]
-    },
-    "minimum-stability": "stable",
-    "extra": {
-        "laravel": {
-            "providers": [
-                "SpondonIt\\Service\\SpondonItServiceProvider"
-            ]
-        }
-    }
+    "minimum-stability": "stable"
 }

@@ -31,7 +31,7 @@ class InstallRepository {
 
         try{
             $admin = $this->makeAdmin($params);
-           
+
             $this->installRepository->seed(gbv($params, 'seed'));
             $this->postInstallScript($admin, $params);
 
@@ -55,6 +55,7 @@ class InstallRepository {
 
     public function postInstallScript($admin, $params){
         // Update general setting
+
         $settings_model_name = config('spondonit.settings_model');
         $settings_model = new $settings_model_name;
         $settings = $settings_model->find(1);
