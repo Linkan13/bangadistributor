@@ -9,10 +9,10 @@
                         </a>
                     </div>
                     @foreach($menus as $key => $menu)
-                        @if($menu->menu_type == 'multi_mega_menu')
+                    @if($menu->menu_type == 'multi_mega_menu')
                             <div class="dropdown show category_menu">
                                 <a class="Categories_togler">
-                                    {{ textLimit($menu->name, 25) }}
+                                    @php $menu->name @endphp {{ textLimit($menu->name, 25) }}
                                     <i class="fas fa-chevron-down"></i>
                                 </a>
                                 <ul class="dropdown_menu catdropdown_menu">

@@ -25,7 +25,7 @@
                     <div class="cart_added_box">
                         <a id="cart_suceess_url" class="cart_added_box_item d-flex align-items-center gap_25 flex-sm-wrap flex-md-nowrap">
                             <div class="thumb">
-                                <img class="img-fluid" id="cart_suceess_thumbnail" src="{{url('/')}}/public/frontend/amazy/img/cart_added_thumb.png" alt="" title="">
+                                <img class="img-fluid" id="cart_suceess_thumbnail" src="{{url('/')}}/frontend/amazy/img/cart_added_thumb.png" alt="" title="">
                             </div>
                             <div class="cart_added_content">
                                 <h4 id="cart_suceess_name"></h4>
