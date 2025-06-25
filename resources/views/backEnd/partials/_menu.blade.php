@@ -1,4 +1,7 @@
 @php
+    use Illuminate\Support\Facades\Auth;
+@endphp
+@php
     $langs = app('langs');
     $locale = app('general_setting')->language_code;
     if(session()->has('locale')){

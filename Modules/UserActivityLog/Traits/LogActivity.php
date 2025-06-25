@@ -1,10 +1,10 @@
 <?php
 namespace Modules\UserActivityLog\Traits;
 
-use Request;
 use Browser;
 use Carbon\Carbon;
 use Modules\UserActivityLog\Entities\LogActivity as LogActivityModel;
+use Illuminate\Support\Facades\Request;
 
 class LogActivity
 {

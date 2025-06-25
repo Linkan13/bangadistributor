@@ -1,3 +1,7 @@
+@php
+    use Illuminate\Support\Facades\Auth;
+@endphp
+
 <!DOCTYPE html>
 <html dir="{{isRtl()?'rtl':''}}" class="{{isRtl()?'rtl':''}}">
 @php

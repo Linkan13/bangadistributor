@@ -6,4 +6,4 @@ node_modules/
 /public/storage
 /storage/framework/*
 /storage/logs/*
-*.log
+*.log/public/frontend/amazy/compile_css/*.css
