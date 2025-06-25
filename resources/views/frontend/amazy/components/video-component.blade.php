@@ -55,7 +55,7 @@
 <section class="story-section position-relative overflow-hidden">
     <div class="video-background position-absolute top-0 start-0 w-100 h-100 z-n1">
         <video class="w-100 h-100 object-fit-cover" autoplay loop muted playsinline preload="metadata" style="object-fit: cover;">
-            <source src="{{ url('public/' . $story->video_url) }}" type="video/mp4">
+            <source src="{{ url($story->video_url) }}" type="video/mp4">
         </video>
     </div>
     <div class="container position-relative z-1 text-center py-5 text-white">
