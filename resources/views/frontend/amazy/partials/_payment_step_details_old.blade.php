@@ -606,7 +606,7 @@
                         </div>
                         <div class="coupon_verify_information mb_20 d-flex align-items-center flex-wrap ">
                             <div class="icon">
-                                <img src="{{url('/')}}/public/frontend/amazy/img/cart/verified.svg" alt="">
+                                <img src="{{url('/')}}/frontend/amazy/img/cart/verified.svg" alt="">
                             </div>
                             <div class="coupon_content">
                                 <h4 class="font_14 f_w_700 lh-1">Valid Coupon Code</h4>

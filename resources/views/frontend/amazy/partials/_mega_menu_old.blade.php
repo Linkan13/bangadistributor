@@ -5,7 +5,7 @@
                 <div class="shop_header_wrapper d-flex align-items-center">
                     <div class="menu_logo">
                         <a href="index.php">
-                            <img src="{{url('/')}}/public/frontend/amazy/img/logo.png" alt="">
+                            <img src="{{url('/')}}/frontend/amazy/img/logo.png" alt="">
                         </a>
                     </div>
                     <div class="dropdown show category_menu">
@@ -80,7 +80,7 @@
                                     <!-- single_menu  -->
                                     <li class="img_menu pt-0 position-relative">
                                         <div class="sub_menu_bg_img position-absolute end-0 bottom-0">
-                                            <img class="img-fluid" src="{{url('/')}}/public/frontend/amazy/img/menu_bg.png" alt="">
+                                            <img class="img-fluid" src="{{url('/')}}/frontend/amazy/img/menu_bg.png" alt="">
                                         </div>
                                         <ul>
                                             <li>
@@ -156,7 +156,7 @@
                                     <!-- single_menu  -->
                                     <li class="img_menu pt-0 position-relative">
                                         <div class="sub_menu_bg_img position-absolute end-0 bottom-0">
-                                            <img class="img-fluid" src="{{url('/')}}/public/frontend/amazy/img/menu_bg.png" alt="">
+                                            <img class="img-fluid" src="{{url('/')}}/frontend/amazy/img/menu_bg.png" alt="">
                                         </div>
                                         <ul>
                                             <li>
@@ -232,7 +232,7 @@
                                     <!-- single_menu  -->
                                     <li class="img_menu pt-0 position-relative">
                                         <div class="sub_menu_bg_img position-absolute end-0 bottom-0">
-                                            <img class="img-fluid" src="{{url('/')}}/public/frontend/amazy/img/menu_bg.png" alt="">
+                                            <img class="img-fluid" src="{{url('/')}}/frontend/amazy/img/menu_bg.png" alt="">
                                         </div>
                                         <ul>
                                             <li>
@@ -314,7 +314,7 @@
                                     <!-- single_menu  -->
                                     <li class="img_menu pt-0 position-relative">
                                         <div class="sub_menu_bg_img position-absolute end-0 bottom-0">
-                                            <img class="img-fluid" src="{{url('/')}}/public/frontend/amazy/img/menu_bg.png" alt="">
+                                            <img class="img-fluid" src="{{url('/')}}/frontend/amazy/img/menu_bg.png" alt="">
                                         </div>
                                         <ul>
                                             <li>
@@ -389,7 +389,7 @@
                                     <!-- single_menu  -->
                                     <li class="img_menu pt-0 position-relative">
                                         <div class="sub_menu_bg_img position-absolute end-0 bottom-0">
-                                            <img class="img-fluid" src="{{url('/')}}/public/frontend/amazy/img/menu_bg.png" alt="">
+                                            <img class="img-fluid" src="{{url('/')}}/frontend/amazy/img/menu_bg.png" alt="">
                                         </div>
                                         <ul>
                                             <li>
@@ -469,7 +469,7 @@
                                     <!-- single_menu  -->
                                     <li class="img_menu pt-0 position-relative">
                                         <div class="sub_menu_bg_img position-absolute end-0 bottom-0">
-                                            <img class="img-fluid" src="{{url('/')}}/public/frontend/amazy/img/menu_bg.png" alt="">
+                                            <img class="img-fluid" src="{{url('/')}}/frontend/amazy/img/menu_bg.png" alt="">
                                         </div>
                                         <ul>
                                             <li>
@@ -543,7 +543,7 @@
                                     <!-- single_menu  -->
                                     <li class="img_menu pt-0 position-relative">
                                         <div class="sub_menu_bg_img position-absolute end-0 bottom-0">
-                                            <img class="img-fluid" src="{{url('/')}}/public/frontend/amazy/img/menu_bg.png" alt="">
+                                            <img class="img-fluid" src="{{url('/')}}/frontend/amazy/img/menu_bg.png" alt="">
                                         </div>
                                         <ul>
                                             <li>
@@ -630,7 +630,7 @@
                                     <!-- single_menu  -->
                                     <li class="img_menu pt-0 position-relative">
                                         <div class="sub_menu_bg_img position-absolute end-0 bottom-0">
-                                            <img class="img-fluid" src="{{url('/')}}/public/frontend/amazy/img/menu_bg.png" alt="">
+                                            <img class="img-fluid" src="{{url('/')}}/frontend/amazy/img/menu_bg.png" alt="">
                                         </div>
                                         <ul>
                                             <li>
@@ -706,7 +706,7 @@
                                     <!-- single_menu  -->
                                     <li class="img_menu pt-0 position-relative">
                                         <div class="sub_menu_bg_img position-absolute end-0 bottom-0">
-                                            <img class="img-fluid" src="{{url('/')}}/public/frontend/amazy/img/menu_bg.png" alt="">
+                                            <img class="img-fluid" src="{{url('/')}}/frontend/amazy/img/menu_bg.png" alt="">
                                         </div>
                                         <ul>
                                             <li>
@@ -806,7 +806,7 @@
                                     <!-- single_menu  -->
                                     <li class="img_menu pt-0 position-relative">
                                         <div class="sub_menu_bg_img position-absolute end-0 bottom-0">
-                                            <img class="img-fluid" src="{{url('/')}}/public/frontend/amazy/img/menu_bg.png" alt="">
+                                            <img class="img-fluid" src="{{url('/')}}/frontend/amazy/img/menu_bg.png" alt="">
                                         </div>
                                         <ul>
                                             <li>
@@ -892,7 +892,7 @@
                                     <!-- single_menu  -->
                                     <li class="img_menu pt-0 position-relative">
                                         <div class="sub_menu_bg_img position-absolute end-0 bottom-0">
-                                            <img class="img-fluid" src="{{url('/')}}/public/frontend/amazy/img/menu_bg.png" alt="">
+                                            <img class="img-fluid" src="{{url('/')}}/frontend/amazy/img/menu_bg.png" alt="">
                                         </div>
                                         <ul>
                                             <li>
@@ -971,7 +971,7 @@
                                     <!-- single_menu  -->
                                     <li class="img_menu pt-0 position-relative">
                                         <div class="sub_menu_bg_img position-absolute end-0 bottom-0">
-                                            <img class="img-fluid" src="{{url('/')}}/public/frontend/amazy/img/menu_bg.png" alt="">
+                                            <img class="img-fluid" src="{{url('/')}}/frontend/amazy/img/menu_bg.png" alt="">
                                         </div>
                                         <ul>
                                             <li>
@@ -1051,7 +1051,7 @@
                                     <!-- single_menu  -->
                                     <li class="img_menu pt-0 position-relative">
                                         <div class="sub_menu_bg_img position-absolute end-0 bottom-0">
-                                            <img class="img-fluid" src="{{url('/')}}/public/frontend/amazy/img/menu_bg.png" alt="">
+                                            <img class="img-fluid" src="{{url('/')}}/frontend/amazy/img/menu_bg.png" alt="">
                                         </div>
                                         <ul>
                                             <li>
@@ -1130,7 +1130,7 @@
                                     <!-- single_menu  -->
                                     <li class="img_menu pt-0 position-relative">
                                         <div class="sub_menu_bg_img position-absolute end-0 bottom-0">
-                                            <img class="img-fluid" src="{{url('/')}}/public/frontend/amazy/img/menu_bg.png" alt="">
+                                            <img class="img-fluid" src="{{url('/')}}/frontend/amazy/img/menu_bg.png" alt="">
                                         </div>
                                         <ul>
                                             <li>
@@ -1218,12 +1218,12 @@
                     </div>
                     <div class="main_header_media d-none d-xl-flex">
                         <a href="new_user_zone.php" class="single_top_lists d-flex align-items-center d-none d-lg-inline-flex">
-                            <img src="{{url('/')}}/public/frontend/amazy/img/amaz_icon/new_user.svg" alt="">
+                            <img src="{{url('/')}}/frontend/amazy/img/amaz_icon/new_user.svg" alt="">
                             <span>New User Zone</span>
                         </a>
                         <span class="vertical_line style2 d-none d-lg-inline-flex"></span>
                         <a href="flash_deal.php" class="single_top_lists d-flex align-items-center d-none d-md-inline-flex">
-                            <img src="{{url('/')}}/public/frontend/amazy/img/amaz_icon/deals.svg" alt="">
+                            <img src="{{url('/')}}/frontend/amazy/img/amaz_icon/deals.svg" alt="">
                             <span>Daily Deals</span>
                         </a>
                     </div>

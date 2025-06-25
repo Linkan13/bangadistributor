@@ -17,7 +17,7 @@
                                     <div class="input-group custom_group_field mb_35">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text">
-                                                <img src="{{url('/')}}/public/frontend/amazy/img/my_account/email.svg" alt="E-Mail" title="E-Mail">
+                                                <img src="{{url('/')}}/frontend/amazy/img/my_account/email.svg" alt="E-Mail" title="E-Mail">
                                             </span>
                                         </div>
                                         <input type="email" class="form-control" placeholder="E.g. example@gmail1.com" aria-label="E.g. example@gmail1.com" >
@@ -27,7 +27,7 @@
                                     <div class="input-group custom_group_field ">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text">
-                                                <img src="{{url('/')}}/public/frontend/amazy/img/my_account/pass.svg" alt="Password" title="Password">
+                                                <img src="{{url('/')}}/frontend/amazy/img/my_account/pass.svg" alt="Password" title="Password">
                                             </span>
                                         </div>
                                         <input type="password" class="form-control" placeholder="Enter Password" aria-label="Enter Password" >

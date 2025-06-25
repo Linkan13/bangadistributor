@@ -72,7 +72,7 @@
 
                         </div>
 
-                    </div>    
+                    </div>
 
                     <div class="col-xl-2 col-lg-2 col-md-6 footer_links_50 ">
 
@@ -146,7 +146,7 @@
 
                                     <div class="icon">
 
-                                        <img src="{{url('/')}}/public/frontend/amazy/img/amaz_icon/google_play.svg" alt="{{__('amazy.Google Play')}}" title="{{__('amazy.Google Play')}}">
+                                        <img src="{{url('/')}}/frontend/amazy/img/amaz_icon/google_play.svg" alt="{{__('amazy.Google Play')}}" title="{{__('amazy.Google Play')}}">
 
                                     </div>
 
@@ -168,7 +168,7 @@
 
                                     <div class="icon">
 
-                                        <img src="{{url('/')}}/public/frontend/amazy/img/amaz_icon/apple_icon.svg" alt="{{__('amazy.Apple Store')}}"  title="{{__('amazy.Apple Store')}}">
+                                        <img src="{{url('/')}}/frontend/amazy/img/amaz_icon/apple_icon.svg" alt="{{__('amazy.Apple Store')}}"  title="{{__('amazy.Apple Store')}}">
 
                                     </div>
 
