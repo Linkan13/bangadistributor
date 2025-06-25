@@ -1,0 +1,24 @@
+{
+    "name": "ivopetkov/html5-dom-document-php",
+    "description": "HTML5 DOMDocument PHP library (extends DOMDocument)",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Ivo Petkov",
+            "email": "ivo@ivopetkov.com",
+            "homepage": "http://ivopetkov.com"
+        }
+    ],
+    "require": {
+        "php": "8.0.*|8.1.*|8.2.*|8.3.*|8.4.*",
+        "ext-dom": "*"
+    },
+    "require-dev": {
+        "ivopetkov/docs-generator": "1.*"
+    },
+    "autoload": {
+        "files": [
+            "autoload.php"
+        ]
+    }
+}
