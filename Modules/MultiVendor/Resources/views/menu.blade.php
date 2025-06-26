@@ -47,13 +47,13 @@
                 <a href="{{ route('admin.subscription_payment_list') }}" @if (request()->is('admin/subscription-payment-list')) class="active" @endif>{{ __('seller.subscription_payment') }}</a>
             </li>
             @endif
-            
+
             @if(permissionCheck('admin.seller_configuration') &&  menuManagerCheck(2,6,'admin.seller_configuration')->status == 1)
             <li data-position="{{ menuManagerCheck(2,6,'seller.seller_configuration')->position }}">
                 <a href="{{route('admin.seller_configuration')}}" @if (request()->is('admin/seller-configuration')) class="active" @endif>{{ __('common.configuration') }}</a>
             </li>
             @endif
-        
+
         </ul>
     </li>
 @endif

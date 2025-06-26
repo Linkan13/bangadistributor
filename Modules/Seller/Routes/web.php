@@ -56,10 +56,10 @@ Route::prefix('seller')->as('seller.')->group(function() {
     Route::post('/get-seller-product-variant-wise-price', 'ProductController@get_seller_product_variant_wise_price')->name('get_seller_product_variant_wise_price');
 });
 Route::middleware(['auth','admin'])->prefix('admin')->group(function() {
-    if(isModuleActive('MultiVendor')){
+    // if(isModuleActive('MultiVendor')){
     //inhouse product
         Route::get('/inhouse/product','ProductController@index')->name('admin.my-product.index')->middleware(['permission']);
         Route::get('/inhouse/products/create','ProductController@create')->name('admin.my-product.create')->middleware(['permission']);
         Route::get('/inhouse/product/edit/{id}','ProductController@edit')->name('admin.my-product.edit')->middleware(['permission']);
-    }
+    // }
 });

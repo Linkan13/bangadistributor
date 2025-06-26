@@ -3,32 +3,32 @@
 if (!function_exists('isModuleActive')) {
     function isModuleActive($module)
     {
-        try {
-            $haveModule = app('ModuleList')->where('name', $module)->first();
+        // try {
+            // $haveModule = app('ModuleList')->where('name', $module)->first();
 
-            $is_module_available = 'Modules/' . $module . '/Providers/' . $module . 'ServiceProvider.php';
+            // $is_module_available = 'Modules/' . $module . '/Providers/' . $module . 'ServiceProvider.php';
 
-            if (file_exists($is_module_available)) {
-                
-                $moduleCheck = \Nwidart\Modules\Facades\Module::find($module)->isEnabled();
+            // if (file_exists($is_module_available)) {
 
-                if (!$moduleCheck) {
-                    return false;
-                }
+            //     $moduleCheck = \Nwidart\Modules\Facades\Module::find($module)->isEnabled();
 
-                if ($haveModule) {
-                    if (!empty($haveModule->purchase_code)) {
-                        return true;
-                    }
-                }else{
-                    return $moduleCheck;
-                }
-            }
-            return false;
-        } catch (\Throwable $th) {
+            //     if (!$moduleCheck) {
+            //         return true;
+            //     }
 
-            return false;
-        }
+            //     if ($haveModule) {
+            //         if (!empty($haveModule->purchase_code)) {
+            //             return true;
+            //         }
+            //     }else{
+            //         return $moduleCheck;
+            //     }
+            // }
+        //     return true;
+        // } catch (\Throwable $th) {
+
+            return true;
+        // }
 
     }
 }

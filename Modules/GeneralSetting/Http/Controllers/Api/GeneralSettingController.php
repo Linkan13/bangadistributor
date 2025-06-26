@@ -100,7 +100,7 @@ class GeneralSettingController extends Controller
             'POS' => isModuleActive('POS'),
             'AuctionProducts' => isModuleActive('AuctionProducts'),
             'CheckPincode' => isModuleActive('CheckPincode'),
-            // 'Tabby' => isModuleActive('Tabby'),
+            'Tabby' => isModuleActive('Tabby'),
         ];
 
         return response()->json([

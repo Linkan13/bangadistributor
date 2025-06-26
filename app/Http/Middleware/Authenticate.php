@@ -21,9 +21,9 @@ class Authenticate extends Middleware
                 return url('/admin/login');
             }
             if(in_array('seller', $middleware)){
-                if(isModuleActive('MultiVendor')){
+                // if(isModuleActive('MultiVendor')){
                     return url('/seller/login');
-                }
+                // }
                 return url('/admin/login');
             }
             return url('/login');

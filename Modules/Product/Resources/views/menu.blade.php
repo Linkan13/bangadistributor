@@ -52,14 +52,14 @@
                         <a href="{{ route('product.index') }}" @if (request()->is('product')) class="active" @endif>{{__('product.product_list')}}</a>
                     </li>
                 @endif
-                
-                @if(isModuleActive('MultiVendor'))
+
+                <!-- @if(isModuleActive('MultiVendor')) -->
                     @if (permissionCheck('admin.my-product.index') && menuManagerCheck(2,12,'admin.my-product.index')->status == 1)
                         <li data-position="{{ menuManagerCheck(2,12,'admin.my-product.index')->position }}">
                             <a href="{{ route('admin.my-product.index') }}" @if (request()->is('admin/inhouse/product') || request()->is('admin/inhouse/products/create')) class="active" @endif>{{__('product.inhouse_product_list')}}</a>
                         </li>
                     @endif
-                @endif
+                <!-- @endif -->
                 @if (permissionCheck('product.recent_view_product_config') && menuManagerCheck(2,12,'product.recent_view_product_config')->status == 1)
                     <li data-position="{{ menuManagerCheck(2,12,'product.recent_view_product_config')->position }}">
                         <a href="{{ route('product.recent_view_product_config') }}" @if (strpos(request()->getUri(),'recently-view-product-config') != false) class="active" @endif>{{__('product.recent_view_config')}}</a>

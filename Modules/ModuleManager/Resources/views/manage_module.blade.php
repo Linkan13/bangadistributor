@@ -36,7 +36,7 @@
                                     <th>{{__('common.sl')}}</th>
                                     <th>{{__('general_settings.module')}}{{__('common.name')}}</th>
                                     <th>{{__('common.description')}}</th>
-                                    <th class="text-right"></th>
+                                    <!-- <th class="text-right"></th> -->
                                 </tr>
                                 </thead>
 
@@ -238,7 +238,7 @@
                 </div>
 
                 <div class="modal-body">
-                    {{ Form::open(['id'=>"content_form",'class' => 'form-horizontal', 'files' => true, 'route' => 'ManageAddOnsValidation', 'method' => 'POST']) }}
+                    {{ Form::open(['id'=>"content_form",'class' => 'form-horizontal', 'files' => true, 'route' => 'modulemanager.index', 'method' => 'POST']) }}
                     <input type="hidden" name="name" value="" id="moduleName">
 
                     @csrf
