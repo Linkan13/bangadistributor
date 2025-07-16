@@ -1,0 +1,4 @@
+<FilesMatch "\.(mp4|webm|ogg)$">
+    Order allow,deny
+    Allow from all
+</FilesMatch>

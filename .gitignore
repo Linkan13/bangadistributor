@@ -1,0 +1,9 @@
+/vendor/
+node_modules/
+.env
+.phpunit.result.cache
+/storage/*.key
+/public/storage
+/storage/framework/*
+/storage/logs/*
+*.log/public/frontend/amazy/compile_css/*.css
