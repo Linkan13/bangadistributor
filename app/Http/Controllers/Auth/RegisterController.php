@@ -50,6 +50,28 @@ class RegisterController extends Controller
         return '/profile/dashboard';
     }
 
+    public function showDistributorRegistrationForm()
+    {
+        $row = '';
+        $form_data = '';
+        if(Module::has('FormBuilder')){
+            if(Schema::hasTable('custom_forms')){
+                $formBuilderRepo = new FormBuilderRepositories();
+                $row = $formBuilderRepo->find(2);
+                if($row->form_data){
+                    $form_data = json_decode($row->form_data);
+                }
+            }
+        }
+
+        if(url()->previous() == url('/checkout') || url()->previous() == url('/checkout?checkout_type=YnV5X2l0X25vdw==')){
+            session()->put('from_checkout',url()->previous());
+        }
+
+        $loginPageInfo = LoginPage::findOrFail(2);
+        return view(theme('auth.registerdistributor'),compact('row','form_data','loginPageInfo'));
+    }
+
     public function __construct()
     {
         $this->middleware(['guest', 'maintenance_mode']);

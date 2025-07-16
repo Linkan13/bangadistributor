@@ -54,6 +54,29 @@ class LoginController extends Controller
         return '/profile/dashboard';
     }
 
+    public function showDistributorLoginForm()
+    {
+        if(url()->previous() == url('/checkout') || url()->previous() == url('/checkout?checkout_type=YnV5X2l0X25vdw==')){
+            session()->put('from_checkout',url()->previous());
+        }
+        $seller = User::whereHas('role', function($q){
+            return $q->where('type', 'seller');
+        })->first();
+        $seller_email = null;
+        $customer_email = null;
+        if($seller){
+            $seller_email = $seller->email;
+        }
+        $customer = User::whereHas('role', function($q){
+            return $q->where('type', 'customer');
+        })->first();
+        if($customer){
+            $customer_email = $customer->email;
+        }
+        $loginPageInfo = LoginPage::findOrFail(2);
+        return view(theme('auth.logindistributor'), compact('seller_email', 'customer_email', 'loginPageInfo'));
+    }
+
     /**
      * Create a new controller instance.
      *

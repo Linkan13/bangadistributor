@@ -42,6 +42,8 @@ use App\Http\Controllers\Frontend\ReturnExchangeController;
 use App\Http\Controllers\Frontend\DigitalGiftCardController;
 use Modules\OrderManage\Http\Controllers\OrderManageController;
 use App\Http\Controllers\Admin\VideoUploadController;
+use App\Http\Controllers\Auth\API\AuthController;
+use App\Http\Controllers\Auth\RegisterController;
 
 Route::post('/locale',[LanguageController::class,'locale'])->name('frontend.locale')->middleware('prohibited_demo_mode');
 Auth::routes(['verify' => true]);
@@ -55,6 +57,11 @@ Route::get('/admin',function(){
     return redirect(url('/admin/login'));
 });
 
+
+Route::get('/distributor/register', [RegisterController::class, 'showDistributorRegistrationForm'])->name('distributor.register');
+Route::get('/distributor/login', [LoginController::class, 'showDistributorLoginForm'])->name('distributor.login');
+Route::post('/logindistributor', [AuthController::class, 'logindistributor'])->name('distributorpost.login');
+Route::post('/registerdistributor', [AuthController::class, 'registerdistributor'])->name('distributorpost.register');
 
 Route::get('/dashboards', function(){
     return redirect(url('/admin-dashboard'));
