@@ -12,6 +12,10 @@ class AuthService{
         $this->authRepository = $authRepository;
     }
 
+    public function registerdistributor($data){
+        return $this->authRepository->registerDist($data);
+    }
+
     public function register($data){
         return $this->authRepository->register($data);
     }

@@ -19,6 +19,18 @@
             <h3 class="m-0">{{__('auth.Sign Up')}}</h3>
             <p class="support_text">{{__('auth.See your growth and get consulting support!')}}</p>
 
+            @if (session('success'))
+                <div class="alert alert-success mb-3">
+                    {{ session('success') }}
+                </div>
+            @endif
+
+            @if (session('error'))
+                <div class="alert alert-danger mb-3">
+                    {{ session('error') }}
+                </div>
+            @endif
+
             <form action="{{ route('distributorpost.register') }}" method="POST" name="register" id="register_form" enctype="multipart/form-data">
                 @csrf
                 <div class="row">

@@ -142,7 +142,10 @@ class AuthController extends Controller
             'user_id' => $user->id,
             'session_id' => ''
         ]);
-        return $this->registerCustomerResponse($user);
+
+        return redirect()->route('distributor.register')->with('success', 'Distributor registered successfully.');
+
+        // return $this->registerCustomerResponse($user);
     }
 
     public function login(Request $request)
@@ -470,7 +473,7 @@ class AuthController extends Controller
             'token' => $token,
             'message' => 'Successfully registered'
         ];
-        return response()->json($response, 201);
+        return response()->json($response, 200);
     }
 
     private function getTokenBySocial($request)

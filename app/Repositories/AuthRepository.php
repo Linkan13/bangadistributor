@@ -2,6 +2,7 @@
 namespace App\Repositories;
 
 use App\Models\User;
+use App\Models\DistUser;
 use App\Traits\Notification;
 use Illuminate\Support\Facades\Hash;
 use Modules\GeneralSetting\Entities\EmailTemplateType;
@@ -14,6 +15,55 @@ use Modules\Marketing\Entities\ReferralCode;
 class AuthRepository{
 
     use Notification;
+
+    public function registerDist($data){
+
+        $field = $data['email'];
+        if (filter_var($field, FILTER_VALIDATE_EMAIL)) {
+            $email = $data['email'];
+        }else{
+            $phone = $data['email'];
+        }
+        $user = User::create([
+            'first_name' => $data['first_name'],
+            'last_name' => isset($data['last_name'])?$data['last_name']:null,
+            'username' => isset($phone)?$phone:NULL,
+            'email' => isset($email)?$email:NULL,
+            'password' => Hash::make($data['password']),
+            'role_id' => 4,
+            'phone' => isset($phone)?$phone:NULL,
+            'currency_id' => app('general_setting')->currency,
+            'lang_code' => app('general_setting')->language_code,
+            'currency_code' => app('general_setting')->currency_code,
+        ]);
+
+        // User Notification Setting Create
+        (new UserNotificationSetting())->createForRegisterUser($user->id);
+        $this->typeId = EmailTemplateType::where('type','register_email_template')->first()->id;//register email templete typeid
+        $notification = NotificationSetting::where('slug','register')->first();
+        if ($notification) {
+            $this->notificationSend($notification->id,$user->id);
+        }
+
+         // ✅ Save user_id into dist_users
+        DistUser::create([
+            'user_id' => $user->id,
+        ]);
+
+        if(isset($data['referral_code'])){
+            $referralData = ReferralCodeSetup::first();
+            $referralExist = ReferralCode::where('referral_code', $data['referral_code'])->first();
+            if ($referralExist) {
+                $referralExist->update(['total_used' => $referralExist->total_used + 1]);
+                ReferralUse::create([
+                    'user_id' => $user->id,
+                    'referral_code' => $data['referral_code'],
+                    'discount_amount' => $referralData->amount
+                ]);
+            }
+        }
+        return $user;
+    }
 
     public function register($data){
 
