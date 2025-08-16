@@ -21,6 +21,8 @@ use Modules\Affiliate\Repositories\AffiliateRepository;
 use Modules\GeneralSetting\Entities\NotificationSetting;
 use Modules\GeneralSetting\Entities\UserNotificationSetting;
 use Modules\GeneralSetting\Services\NotificationSettingService;
+use Brian2694\Toastr\Facades\Toastr;
+use Illuminate\Support\Facades\Auth;
 
 /**
  * @group User Management
@@ -79,8 +81,54 @@ class AuthController extends Controller
      *   "message" : "Successfully logged In"
      * }
      */
+    public function logindistributor(Request $request)
+    {
+        // ✅ Validate request
+        $request->validate([
+            'login'    => 'required',
+            'password' => 'required',
+        ]);
 
-     public function logindistributor(Request $request)
+        // ✅ Try to find user by email OR username
+        $user = User::where('is_active', 1)
+            ->whereHas('role', fn($q) => $q->where('type', 'customer'))
+            ->where(function ($q) use ($request) {
+                $q->where('email', $request->login)
+                  ->orWhere('username', $request->login);
+            })
+            ->first();
+
+        // ✅ Check if user exists & password is correct
+        if ($user && Hash::check($request->password, $user->password)) {
+
+            // ✅ Log the user into session (so auth()->user() works)
+            Auth::login($user);
+
+            // ✅ Move cart items from session to user
+            Cart::where('session_id', $request->device_token)
+                ->update([
+                    'user_id'   => $user->id,
+                    'session_id'=> null,
+                ]);
+
+            // ✅ Generate API token (if needed for API calls)
+            $token = $user->createToken('my_token')->plainTextToken;
+
+            // ✅ Success message
+            Toastr::success(__('auth.logged_in_successfully'), __('common.success'));
+
+            // ✅ Redirect to dashboard with token (optional)
+            return redirect()->intended('/profile/dashboard')
+                ->with('token', $token);
+        }
+
+        // ❌ If login fails
+        Toastr::error('Invalid credentials, please try again.', 'Login Failed');
+        return back()->withInput($request->only('email'));
+
+    }
+
+     public function logindistributor1(Request $request)
      {
          $request->validate([
              'login' => 'required',
@@ -96,6 +144,7 @@ class AuthController extends Controller
                  return $q->where('type', 'customer');
              })->first();
          }
+
          if ($user && Hash::check($request->password, $user->password) && $user->role->type == 'customer') {
 
              $carts = Cart::where('session_id',$request->device_token)->get();
@@ -103,8 +152,9 @@ class AuthController extends Controller
              $carts =  Cart::where('session_id',$request->device_token)->update([
                  'user_id' => $user->id,
                  'session_id' => ''
-             ]);
+                ]);
 
+                // dd('hjh');
 
              $token = $user->createToken('my_token')->plainTextToken;
              $response = [
@@ -112,9 +162,11 @@ class AuthController extends Controller
                  'token' => $token,
                  'message' => 'Successfully logged In'
              ];
-             return redirect('/')->with('success', 'Logged in successfully.');
-
-            //  return response($response, 200);
+            //  return redirect('/')->with('success', 'Logged in successfully.');
+            Toastr::success(__('auth.logged_in_successfully'), __('common.success'));
+            return redirect()->intended('/profile/dashboard')
+            ->with('token', $token); // Optional if dashboard needs it
+                        //  return response($response, 200);
             } else {
              return response(['message' => 'Invalid Credintials'], 401);
          }
@@ -148,9 +200,9 @@ class AuthController extends Controller
             'session_id' => ''
         ]);
 
-        return redirect()->route('distributor.register')->with('success', 'Distributor registered successfully.');
+        // return redirect()->route('distributor.register')->with('success', 'Distributor registered successfully.');
 
-        // return $this->registerCustomerResponse($user);
+        return $this->registerCustomerResponse($user);
     }
 
     public function login(Request $request)
@@ -193,6 +245,7 @@ class AuthController extends Controller
 
     public function customerLogin(Request $request)
     {
+        // dd('hi');
         $request->validate([
             'email' => 'required',
             'password' => 'required',

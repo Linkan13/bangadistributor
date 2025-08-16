@@ -248,9 +248,8 @@ class LoginController extends Controller
                 "email" => __('auth.failed')
             ]);
         }
-
-
     }
+
     protected function validateLogin(Request $request)
     {
         if (env('NOCAPTCHA_FOR_LOGIN') == "true" && app('theme')->folder_path == 'amazy') {
