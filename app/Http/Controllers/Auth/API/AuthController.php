@@ -112,9 +112,9 @@ class AuthController extends Controller
                  'token' => $token,
                  'message' => 'Successfully logged In'
              ];
-            //  return redirect()->route('dashboard')->with('success', 'Logged in successfully.');
+             return redirect('/')->with('success', 'Logged in successfully.');
 
-             return response($response, 200);
+            //  return response($response, 200);
             } else {
              return response(['message' => 'Invalid Credintials'], 401);
          }
