@@ -80,40 +80,45 @@ class AuthController extends Controller
      * }
      */
 
-
-    public function logindistributor(Request $request)
-    {
-        $request->validate([
-            'email' => 'required',
-            'password' => 'required',
-            'device_token' => "required",
-        ]);
-
-        $user = User::where('email', $request->email)->where('is_active', 1)->whereHas('role', function ($q) {
-            return $q->where('type', 'distributor');
-        })->first();
-        if ($user && Hash::check($request->password, $user->password) && $user->role->type == 'customer') {
-
-            $carts = Cart::where('session_id', $request->device_token)->get();
-
-            $carts =  Cart::where('session_id', $request->device_token)->update([
-                'user_id' => $user->id,
-                'session_id' => ''
+     public function logindistributor(Request $request)
+     {
+         $request->validate([
+             'login' => 'required',
+             'password' => 'required',
+             '_token' => "required",
             ]);
 
+            $user = User::where('email', $request->login)->where('is_active', 1)->whereHas('role', function ($q) {
+             return $q->where('type', 'customer');
+         })->first();
+         if (!$user) {
+             $user = User::where('username', $request->login)->where('is_active', 1)->whereHas('role', function ($q) {
+                 return $q->where('type', 'customer');
+             })->first();
+         }
+         if ($user && Hash::check($request->password, $user->password) && $user->role->type == 'customer') {
 
-            $token = $user->createToken('my_token')->plainTextToken;
-            $response = [
-                'user' => $user,
-                'token' => $token,
-                'message' => 'Successfully logged In'
-            ];
+             $carts = Cart::where('session_id',$request->device_token)->get();
 
-            return response($response, 200);
-        } else {
-            return response(['message' => 'Invalid Credintials'], 401);
-        }
-    }
+             $carts =  Cart::where('session_id',$request->device_token)->update([
+                 'user_id' => $user->id,
+                 'session_id' => ''
+             ]);
+
+
+             $token = $user->createToken('my_token')->plainTextToken;
+             $response = [
+                 'user' => $user,
+                 'token' => $token,
+                 'message' => 'Successfully logged In'
+             ];
+            //  return redirect()->route('dashboard')->with('success', 'Logged in successfully.');
+
+             return response($response, 200);
+            } else {
+             return response(['message' => 'Invalid Credintials'], 401);
+         }
+     }
 
     public function registerdistributor(Request $request)
     {
