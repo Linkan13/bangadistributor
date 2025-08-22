@@ -262,6 +262,10 @@
 
     </footer>
 
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="back-to-top" aria-label="Back to top">
+        ↑
+    </button>
     <!-- FOOTER::END  -->
 
 @include('frontend.amazy.auth.partials._login_modal')

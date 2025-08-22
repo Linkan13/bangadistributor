@@ -216,6 +216,7 @@
                 }
             </style>
         @endif
+        <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;700&family=Vujahday+Script&family=Cinzel:wght@700&family=Marcellus&family=Urbanist:wght@500&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="{{asset(asset_path('css/custom.css'))}}">
     <script>
