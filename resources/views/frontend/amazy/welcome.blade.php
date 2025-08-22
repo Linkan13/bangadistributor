@@ -36,25 +36,6 @@ $best_deal = $widgets->where('section_name','best_deals')->first();
 $feature_categories = $widgets->where('section_name','feature_categories')->first();
 @endphp
 
-<!-- <div id="Shop-categories" class="amaz_section amaz_deal_area second-section mt_60">
-    <div class="container">
-        <div class="row">
-            @foreach($feature_categories->getCategoryByQuery()->take(3) as $key => $category)
-            <div class="col-xl-4 col-md-6 col-lg-4 mb_20 img-container">
-                @if(app('general_setting')->lazyload == 1)
-                <img class="img-fluid lazyload" src="{{showImage(themeDefaultImg())}}" data-src="{{showImage(@$category->categoryImage->image?@$category->categoryImage->image:'frontend/default/img/default_category.png')}}" alt="{{@$category->name}}" title="{{@$category->name}}">
-                @else
-                <img class="img-fluid" src="{{showImage(@$category->categoryImage->image?@$category->categoryImage->image:'frontend/default/img/default_category.png')}}" alt="{{@$category->name}}" title="{{@$category->name}}">
-                @endif
-                <div class="amaz_inner_content">
-                    <h3 class="amaz_title">{{textLimit($category->name,25)}}</h3>
-                    <a href="{{route('frontend.category-product',['slug' => $category->slug, 'item' =>'category'])}}" class=" amaz_link">Explore collection <img src="{{showImage('frontend/default/img/arrow-up.svg')}}" class="svg-icon"></a>
-                </div>
-            </div>
-            @endforeach
-        </div>
-    </div>
-</div> -->
 
 
 <!-- Main Content -->
@@ -311,26 +292,16 @@ $feature_categories = $widgets->where('section_name','feature_categories')->firs
                 </div>
 
                 <div class="category-grid">
-                    <div class="category-item" style="background-image: url('https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=552&h=517&fit=crop')">
-                        <div class="category-overlay">
-                            <h4>Women's Fashion</h4>
+                    @foreach($feature_categories->getCategoryByQuery()->take(3) as $key => $category)
+                        <div class="category-item" >
+                            <img class="img-fluid lazyload" src="{{showImage(themeDefaultImg())}}" data-src="{{showImage(@$category->categoryImage->image?@$category->categoryImage->image:'frontend/default/img/default_category.png')}}" alt="{{@$category->name}}" title="{{@$category->name}}">
+                            <div class="category-overlay">
+                                <h4>
+                                    <a href="{{route('frontend.category-product',['slug' => $category->slug, 'item' =>'category'])}}" class=" amaz_link">{{textLimit($category->name,25)}}</a>
+                                </h4>
+                            </div>
                         </div>
-                    </div>
-                    <div class="category-item" style="background-image: url('https://images.unsplash.com/photo-1521572163474-6864f9d17b86?w=552&h=517&fit=crop')">
-                        <div class="category-overlay">
-                            <h4>Men's Fashion</h4>
-                        </div>
-                    </div>
-                    <div class="category-item" style="background-image: url('https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?w=552&h=517&fit=crop')">
-                        <div class="category-overlay">
-                            <h4>Sports Wear</h4>
-                        </div>
-                    </div>
-                    <div class="category-item" style="background-image: url('https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?w=552&h=517&fit=crop')">
-                        <div class="category-overlay">
-                            <h4>Kids Fashion</h4>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
 
                 <button class="cta-button">Browse All Products</button>
@@ -347,7 +318,10 @@ $feature_categories = $widgets->where('section_name','feature_categories')->firs
                         <button class="cta-button">View Featured Line</button>
                     </div>
                 </div>
-                <div class="featured-background" style="background-image: url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1920&h=676&fit=crop')"></div>
+
+                <div class="featured-background">
+                    <img src="{{ showImage('frontend/default/img/bangaknitwear.us.png') }}" class="lazyload">
+                </div>
             </div>
         </section>
 
