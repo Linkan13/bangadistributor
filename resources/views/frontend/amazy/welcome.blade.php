@@ -408,24 +408,7 @@ $feature_categories = $widgets->where('section_name','feature_categories')->firs
                     <p class="contact-description">Feel free to contact us with a project proposal, quote or estimation, or simply to say hello.</p>
                     <x-contact-component :headers="$headers" />
 
-                    <!-- <form class="contact-form" id="contact-form" novalidate>
-                        <div class="form-group">
-                            <input type="text" placeholder="Name" class="form-input" id="contact-name" required>
-                            <span class="error-message" id="name-error"></span>
-                        </div>
-                        <div class="form-group">
-                            <input type="email" placeholder="Email" class="form-input" id="contact-email" required>
-                            <span class="error-message" id="email-error"></span>
-                        </div>
-                        <div class="form-group">
-                            <input type="tel" placeholder="Mobile" class="form-input" id="contact-mobile" required>
-                            <span class="error-message" id="mobile-error"></span>
-                        </div>
-                        <button type="submit" class="submit-button" id="submit-btn">
-                            <span class="btn-text">Submit</span>
-                            <span class="btn-loader">Sending...</span>
-                        </button>
-                    </form> -->
+
                     <div class="success-message" id="success-message">
                         <p>Thank you for your message! We'll get back to you soon.</p>
                     </div>

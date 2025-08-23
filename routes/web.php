@@ -234,6 +234,7 @@ Route::post('social-delete/{providerId}',[App\Http\Controllers\Auth\LoginControl
 Route::post('/subscription/store',[WelcomeController::class,'subscription'])->name('subscription.store');
 Route::get('/subscription/email-verify',[WelcomeController::class, 'subscriptionVerify']);
 Route::post('/contact/store',[WelcomeController::class,'contactForm'])->name('contact.store');
+Route::post('/contactcustom/store',[WelcomeController::class,'contactFormCustom'])->name('contactcustom.store');
 Route::get('frontend/close-promotion',[WelcomeController::class,'closePromotion']);
 //staff
  Route::group(['middleware' => ['auth','admin']], function(){

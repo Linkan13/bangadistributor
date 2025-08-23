@@ -23,6 +23,7 @@ use Modules\FrontendCMS\Entities\DynamicPage;
 use Modules\UserActivityLog\Traits\LogActivity;
 use Modules\FrontendCMS\Entities\HomePageSection;
 use Illuminate\Support\Facades\DB;
+use App\Models\Contact;
 
 
 class WelcomeController extends Controller
@@ -200,6 +201,36 @@ class WelcomeController extends Controller
             abort(404);
         }
 
+    }
+
+    public function contactFormCustom(Request $request, ContactService $contact)
+    {
+        try {
+            $validated = $request->validate([
+                'name'       => 'required|string|max:255',
+                'email'      => 'required|email|max:255',
+                'mobile'     => 'required|string',
+                'query_type' => 'required|integer',
+            ]);
+
+            // Store in DB via service
+            // $contact->store($validated);
+            // $contact->store(data: $request);
+            $details = [
+                'name' => $request->name,
+                'email' => $request->email,
+                'query_type' => $request->query_type, // take from form/input
+                'message' => $request->mobile,
+            ];
+            $contact = Contact::create($details);
+
+
+            // contactMail($details);
+            LogActivity::successLog('contact created successful.');
+        } catch (Exception $e) {
+            LogActivity::errorLog($e->getMessage());
+            return $e->getMessage();
+        }
     }
 
     public function contactForm(ContactFormRequest $request, ContactService $contact)
