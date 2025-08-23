@@ -406,7 +406,9 @@ $feature_categories = $widgets->where('section_name','feature_categories')->firs
 
                 <div class="contact-content">
                     <p class="contact-description">Feel free to contact us with a project proposal, quote or estimation, or simply to say hello.</p>
-                    <form class="contact-form" id="contact-form" novalidate>
+                    <x-contact-component :headers="$headers" />
+
+                    <!-- <form class="contact-form" id="contact-form" novalidate>
                         <div class="form-group">
                             <input type="text" placeholder="Name" class="form-input" id="contact-name" required>
                             <span class="error-message" id="name-error"></span>
@@ -423,7 +425,7 @@ $feature_categories = $widgets->where('section_name','feature_categories')->firs
                             <span class="btn-text">Submit</span>
                             <span class="btn-loader">Sending...</span>
                         </button>
-                    </form>
+                    </form> -->
                     <div class="success-message" id="success-message">
                         <p>Thank you for your message! We'll get back to you soon.</p>
                     </div>
