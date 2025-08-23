@@ -24,17 +24,20 @@ use Modules\UserActivityLog\Traits\LogActivity;
 use Modules\FrontendCMS\Entities\HomePageSection;
 use Illuminate\Support\Facades\DB;
 use App\Models\Contact;
+use \Modules\FrontendCMS\Services\FaqService;
 
 
 class WelcomeController extends Controller
 {
 
     protected $subscribe;
+    protected $faqService;
 
-    public function __construct(SubscriptionService $subscribe)
+    public function __construct(SubscriptionService $subscribe, FaqService $faqService)
     {
         $this->subscribe = $subscribe;
         $this->middleware('maintenance_mode');
+        $this->faqService = $faqService;
     }
     public function index(Request $request)
     {
@@ -61,6 +64,8 @@ class WelcomeController extends Controller
             ->orderBy('published_at', 'desc')
             ->limit(6)
             ->get();
+            $FaqList = $this->faqService->getAll();
+            dd($FaqList);
             $previous_route = session()->get('previous_user_last_route');
             $previous_user_id = session()->get('previous_user_id');
             if ($previous_route != null) {
