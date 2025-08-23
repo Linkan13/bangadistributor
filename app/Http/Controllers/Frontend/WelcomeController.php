@@ -65,7 +65,7 @@ class WelcomeController extends Controller
             ->limit(6)
             ->get();
             $FaqList = $this->faqService->getAll();
-            dd($FaqList);
+
             $previous_route = session()->get('previous_user_last_route');
             $previous_user_id = session()->get('previous_user_id');
             if ($previous_route != null) {
