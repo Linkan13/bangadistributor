@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\StorySection;
+use Illuminate\Support\Facades\DB;
+use Yajra\DataTables\Facades\DataTables;
 
 class VideoUploadController extends Controller
 {
@@ -12,6 +14,28 @@ class VideoUploadController extends Controller
     {
         $story = StorySection::first();
         return view('backEnd.admin.video-upload', compact('story'));
+    }
+
+
+    public function distributorList(Request $request)
+    {
+        if ($request->ajax()) {
+            $distributors = DB::table('dist_users')
+                ->join('users', 'dist_users.user_id', '=', 'users.id')
+                ->select(
+                    'dist_users.id as dist_id',
+                    'users.id as user_id',
+                    'users.first_name',
+                    'users.last_name',
+                    'users.email',
+                );
+
+            return DataTables::of($distributors)
+                ->addIndexColumn()
+                ->make(true);
+        }
+
+        return view('backEnd.admin.distributor-list');
     }
 
     public function upload(Request $request)

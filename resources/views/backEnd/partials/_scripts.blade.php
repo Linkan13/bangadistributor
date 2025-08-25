@@ -1,5 +1,20 @@
 <script src="{{asset(asset_path('backend/js/loadah.min.js'))}}"></script>
 <script>
+
+$(function () {
+    $('#distributorTable').DataTable({
+        processing: true,
+        serverSide: true,
+        ajax: "{{ route('admin.distributors.list') }}",
+        columns: [
+            { data: 'DT_RowIndex', name: 'DT_RowIndex', orderable: false, searchable: false },
+            { data: 'first_name', name: 'first_name' },
+            { data: 'last_name', name: 'last_name' },
+            { data: 'email', name: 'email' },
+        ]
+    });
+});
+
     window._locale = '{{ app()->getLocale() }}';
     window._translations = {!! cache('translations') !!};
     window.trans = function(string, args) {

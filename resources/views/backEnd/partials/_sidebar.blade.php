@@ -46,19 +46,27 @@
     @if($sidebars->count())
         <ul id="sidebar_menu">
             @if(auth()->user()->role->type == 'seller' && !hasBusinessInfo())
+            <li class="">
+                <a href="{{ route('seller.profile.index') }}" class="" aria-expanded="false">
+                    <div class="nav_icon_small"><span class="fas fa-business-time"></span></div>
+                    <div class="nav_title"><span>{{ __("seller.update_business_info") }}</span></div>
+                </a>
+            </li>
+            @endif
+            @if(auth()->user()->role->type == 'superadmin')
                 <li class="">
-                    <a href="{{ route('seller.profile.index') }}" class="" aria-expanded="false">
+                    <a href="{{ route('admin.distributors.list') }}" class="" aria-expanded="false">
                         <div class="nav_icon_small"><span class="fas fa-business-time"></span></div>
-                        <div class="nav_title"><span>{{ __("seller.update_business_info") }}</span></div>
+                        <div class="nav_title"><span>Distributors List</span></div>
+                    </a>
+                </li>
+                <li class="">
+                    <a href="{{ route('admin.video.form') }}" class="" aria-expanded="false">
+                        <div class="nav_icon_small"><span class="fas fa-business-time"></span></div>
+                        <div class="nav_title"><span>Video Upload</span></div>
                     </a>
                 </li>
             @endif
-            <li class="">
-                <a href="{{ route('admin.video.form') }}" class="" aria-expanded="false">
-                    <div class="nav_icon_small"><span class="fas fa-business-time"></span></div>
-                    <div class="nav_title"><span>Video Upload</span></div>
-                </a>
-            </li>
             @foreach($sidebars as $key => $section)
 
                 @if($section->children->count() > 0)

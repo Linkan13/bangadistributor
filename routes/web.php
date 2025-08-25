@@ -52,6 +52,7 @@ Route::post('/admin/login', [LoginController::class, 'adminLogin'])->name('admin
 Route::prefix('admin')->name('admin.')->group(function () {
     Route::get('/upload-video', [VideoUploadController::class, 'showForm'])->name('video.form');
     Route::post('/upload-video', [VideoUploadController::class, 'upload'])->name('video.upload');
+    Route::get('/distributor-list', [VideoUploadController::class, 'distributorList'])->name('distributors.list');
 });
 Route::get('/admin',function(){
     return redirect(url('/admin/login'));
