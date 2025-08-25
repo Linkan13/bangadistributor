@@ -334,6 +334,17 @@ $feature_categories = $widgets->where('section_name','feature_categories')->firs
                 </div>
 
                 <div class="faq-list">
+                    @foreach($FaqList as $index => $faq)
+                        <div class="faq-item {{ $index == 0 ? 'expanded' : '' }}">
+                            <div class="faq-question">
+                                <span>{{ $faq->getAttributes()['title'] }}</span>
+                                <span class="faq-icon">{{ $index == 0 ? '-' : '+' }}</span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>{{ $faq->getAttributes()['description'] }}</p>
+                            </div>
+                        </div>
+                    @endforeach
                     <div class="faq-item expanded">
                         <div class="faq-question">
                             <span>What is your return policy?</span>
@@ -342,54 +353,6 @@ $feature_categories = $widgets->where('section_name','feature_categories')->firs
                         <div class="faq-answer">
                             <p>We offer a 30-day return policy for all unused items in their original packaging. Simply contact our customer service team to initiate a return, and we'll provide you with a prepaid shipping label. Refunds are processed within
                                 5-7 business days after we receive your return.</p>
-                        </div>
-                    </div>
-                    <div class="faq-item">
-                        <div class="faq-question">
-                            <span>How long does shipping take?</span>
-                            <span class="faq-icon">+</span>
-                        </div>
-                        <div class="faq-answer">
-                            <p>Standard shipping takes 5-7 business days, while express shipping takes 2-3 business days. We also offer same-day delivery in select metropolitan areas. All orders are processed within 24 hours on business days.</p>
-                        </div>
-                    </div>
-                    <div class="faq-item">
-                        <div class="faq-question">
-                            <span>Do you offer international shipping?</span>
-                            <span class="faq-icon">+</span>
-                        </div>
-                        <div class="faq-answer">
-                            <p>Yes, we ship to over 50 countries worldwide. International shipping rates and delivery times vary by destination. Please note that customs fees and import duties may apply and are the responsibility of the customer.</p>
-                        </div>
-                    </div>
-                    <div class="faq-item">
-                        <div class="faq-question">
-                            <span>How do I track my order?</span>
-                            <span class="faq-icon">+</span>
-                        </div>
-                        <div class="faq-answer">
-                            <p>Once your order ships, you'll receive a tracking number via email. You can use this number on our website's order tracking page or click the "Track Your Order" link in the header. You'll receive real-time updates on your package's
-                                location.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="faq-item">
-                        <div class="faq-question">
-                            <span>What payment methods do you accept?</span>
-                            <span class="faq-icon">+</span>
-                        </div>
-                        <div class="faq-answer">
-                            <p>We accept all major credit cards (Visa, MasterCard, American Express), PayPal, Apple Pay, Google Pay, and Buy Now Pay Later options through Klarna and Afterpay. All transactions are secured with 256-bit SSL encryption.</p>
-                        </div>
-                    </div>
-                    <div class="faq-item">
-                        <div class="faq-question">
-                            <span>Do you have a size guide?</span>
-                            <span class="faq-icon">+</span>
-                        </div>
-                        <div class="faq-answer">
-                            <p>Yes, each product page includes a detailed size guide with measurements in both inches and centimeters. We also offer a virtual fitting tool and personalized size recommendations based on your measurements. If you're between
-                                sizes, we recommend sizing up.</p>
                         </div>
                     </div>
                 </div>

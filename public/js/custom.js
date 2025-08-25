@@ -102,18 +102,6 @@ function setupFormValidation() {
     emailInput.addEventListener('blur', () => validateEmail(emailInput));
     mobileInput.addEventListener('blur', () => validateMobile(mobileInput));
 
-    // Form submission
-    contactForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-
-        const isNameValid = validateName(nameInput);
-        const isEmailValid = validateEmail(emailInput);
-        const isMobileValid = validateMobile(mobileInput);
-
-        if (isNameValid && isEmailValid && isMobileValid) {
-            submitForm(submitBtn, successMessage);
-        }
-    });
 }
 
 function validateName(input) {
