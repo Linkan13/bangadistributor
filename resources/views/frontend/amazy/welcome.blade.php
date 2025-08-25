@@ -345,16 +345,6 @@ $feature_categories = $widgets->where('section_name','feature_categories')->firs
                             </div>
                         </div>
                     @endforeach
-                    <div class="faq-item expanded">
-                        <div class="faq-question">
-                            <span>What is your return policy?</span>
-                            <span class="faq-icon">-</span>
-                        </div>
-                        <div class="faq-answer">
-                            <p>We offer a 30-day return policy for all unused items in their original packaging. Simply contact our customer service team to initiate a return, and we'll provide you with a prepaid shipping label. Refunds are processed within
-                                5-7 business days after we receive your return.</p>
-                        </div>
-                    </div>
                 </div>
             </div>
         </section>

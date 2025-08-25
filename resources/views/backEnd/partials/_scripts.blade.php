@@ -11,6 +11,13 @@ $(function () {
             { data: 'first_name', name: 'first_name' },
             { data: 'last_name', name: 'last_name' },
             { data: 'email', name: 'email' },
+            { data: 'percentage', name: 'percentage' },
+            {
+                data: 'action',
+                name: 'action',
+                orderable: false,
+                searchable: false
+            },
         ]
     });
 });

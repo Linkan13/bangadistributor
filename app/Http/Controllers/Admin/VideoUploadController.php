@@ -16,6 +16,28 @@ class VideoUploadController extends Controller
         return view('backEnd.admin.video-upload', compact('story'));
     }
 
+    public function orders($id)
+    {
+        // find distributor by dist_users table
+        $distributor = DB::table('dist_users')
+            ->join('users', 'dist_users.user_id', '=', 'users.id')
+            ->select(
+                'dist_users.id as dist_id',
+                'users.first_name',
+                'users.last_name',
+                'users.email'
+            )
+            ->where('dist_users.id', $id)
+            ->first();
+
+        // get orders for this distributor
+        $orders = DB::table('orders_dist') // or your orders table
+            ->where('dist_id', $id)
+            ->get();
+
+        return view('backEnd.admin.distributor-orders', compact('distributor', 'orders'));
+    }
+
 
     public function distributorList(Request $request)
     {
@@ -28,10 +50,19 @@ class VideoUploadController extends Controller
                     'users.first_name',
                     'users.last_name',
                     'users.email',
+                    'dist_users.percentage',
                 );
 
             return DataTables::of($distributors)
                 ->addIndexColumn()
+                ->addColumn('action', function ($row) {
+                    $btn = '<a href="' . route('admin.distributors.orders', $row->dist_id) . '"
+                                class="btn btn-sm btn-primary">
+                                View Orders
+                            </a>';
+                    return $btn;
+                })
+                ->rawColumns(['action'])
                 ->make(true);
         }
 
