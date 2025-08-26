@@ -200,9 +200,9 @@ class AuthController extends Controller
             'session_id' => ''
         ]);
 
-        // return redirect()->route('distributor.register')->with('success', 'Distributor registered successfully.');
+        return redirect()->route('distributor.register')->with('success', 'Distributor registered successfully.');
 
-        return $this->registerCustomerResponse($user);
+        // return $this->registerCustomerResponse($user);
     }
 
     public function login(Request $request)
